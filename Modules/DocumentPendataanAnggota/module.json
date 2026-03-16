@@ -1,0 +1,11 @@
+{
+    "name": "DocumentPendataanAnggota",
+    "alias": "documentpendataananggota",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DocumentPendataanAnggota\\Providers\\DocumentPendataanAnggotaServiceProvider"
+    ],
+    "files": []
+}

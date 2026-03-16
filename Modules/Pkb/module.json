@@ -1,0 +1,11 @@
+{
+    "name": "Pkb",
+    "alias": "pkb",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Pkb\\Providers\\PkbServiceProvider"
+    ],
+    "files": []
+}

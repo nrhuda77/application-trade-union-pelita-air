@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/documentpendataananggota",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DocumentPendataanAnggota\\": "app/",
+            "Modules\\DocumentPendataanAnggota\\Database\\Factories\\": "database/factories/",
+            "Modules\\DocumentPendataanAnggota\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\DocumentPendataanAnggota\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "LoginAdmin": true,
+    "Pendaftaran": true,
+    "AnggotaSerikat": true,
+    "Pelaporan": true,
+    "EventPengumuman": true,
+    "Dashboard": true,
+    "Pkb": true,
+    "LaporanKeuangan": true,
+    "User": true,
+    "HakAkses": true,
+    "Email": true,
+    "LandingPage": true,
+    "LoginAnggota": true,
+    "DocumentPendataanAnggota": true,
+    "MasukanSaran": true,
+    "SaranPkb": true
+}

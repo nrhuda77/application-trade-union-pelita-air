@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Starter Page - FlexStart Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .page-title .heading {
+      position: relative;
+      /* Pastikan elemen ini menjadi konteks untuk ::after */
+      padding: 110px 0;
+      border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      background: url('assets/img/event.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .page-title .heading::after {
+      content: "";
+      /* Harus ada agar pseudo-element muncul */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      /* Warna overlay gelap */
+      z-index: 1;
+      /* Pastikan overlay berada di atas background */
+    }
+
+    /* Agar teks tetap di atas overlay */
+    .page-title .heading h1,
+    .page-title .heading p {
+      position: relative;
+      z-index: 2;
+      /* Pastikan teks berada di atas overlay */
+    }
+
+
+    .page-title .heading p {
+      color: white;
+    }
+
+
+    /* Gradient Background */
+    .bg-gradient-to-br {
+      background: linear-gradient(to bottom right, white, #f9fafb);
+    }
+
+    .bg-gradient-to-r {
+      background: linear-gradient(to right, #2563eb, #3b82f6, #6366f1);
+    }
+
+    /* Grid Animation Effect */
+    .bg-grid-animation {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.8;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    /* Modal Icon Animation */
+    .modal-icon {
+      transition: transform 0.3s;
+    }
+
+    .modal-content:hover .modal-icon {
+      transform: scale(1.1);
+    }
+
+    /* Custom Button Styles */
+    .btn-close-modal {
+      background: transparent;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s;
+    }
+
+    .btn-close-modal:hover {
+      background: #f3f4f6;
+    }
+
+    .btn-primary-modal {
+      background: linear-gradient(to right, #2563eb, #3b82f6);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+      transition: all 0.3s;
+    }
+
+    .btn-primary-modal:hover {
+      background: linear-gradient(to right, #1d4ed8, #2563eb);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-arrow {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+
+    .btn-primary-modal:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* Modal Dimensions */
+    .h-200px {
+      height: 200px;
+    }
+
+    .modal-content {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-content:hover {
+      transform: translateY(-5px);
+      box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.4) 0px 30px 60px -30px !important;
+    }
+
+    /* Animasi gambar saat hover */
+    .card-img-container img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-content:hover .card-img-container img {
+      transform: scale(1.03);
+      box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 28px !important;
+    }
+
+    /* Animasi halus saat modal muncul */
+    .modal.fade .modal-dialog {
+      transition: transform 0.3s ease-out, opacity 0.3s ease;
+    }
+
+    /* Efek hover untuk tombol */
+    .btn-lg {
+      transition: all 0.3s ease;
+    }
+
+    .btn-lg:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Efek floating card lebih menonjol */
+    .card-img-container img {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-img-container img {
+      aspect-ratio: 4/3;
+    }
+
+    .modal-content:hover .card-img-container img {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 40px !important;
+    }
+  </style>
+  <!-- =======================================================
+  * Template Name: FlexStart
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Updated: Nov 01 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="sitename">FlexStart</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li class="listing-dropdown"><a href="#"><span>Listing Dropdown</span> <i
+                class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li>
+                <a href="#">Column 1 link 1</a>
+                <a href="#">Column 1 link 2</a>
+                <a href="#">Column 1 link 3</a>
+              </li>
+              <li>
+                <a href="#">Column 2 link 1</a>
+                <a href="#">Column 2 link 2</a>
+                <a href="#">Column 3 link 3</a>
+              </li>
+              <li>
+                <a href="#">Column 3 link 1</a>
+                <a href="#">Column 3 link 2</a>
+                <a href="#">Column 3 link 3</a>
+              </li>
+              <li>
+                <a href="#">Column 4 link 1</a>
+                <a href="#">Column 4 link 2</a>
+                <a href="#">Column 4 link 3</a>
+              </li>
+              <li>
+                <a href="#">Column 5 link 1</a>
+                <a href="#">Column 5 link 2</a>
+                <a href="#">Column 5 link 3</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted flex-md-shrink-0" href="index.html#about">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading" style="background: url('https://img.freepik.com/free-photo/asia-businesswoman-using-laptop-talk-colleagues-about-plan-video-call-meeting-while-working-from-home-living-room-self-isolation-social-distancing-quarantine-corona-virus-prevention_7861-2628.jpg?t=st=1745331448~exp=1745335048~hmac=f8ac56cfa359457d9f14b521441772bfc8bc9707d72ac8c6fd6966ae9db6e2e6&w=1800') no-repeat center center;
+  background-size: cover;">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Event</h1>
+              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
+                consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit
+                quaerat ipsum dolorem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Event</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>News</h2>
+        <p>Our hard working News</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <a data-bs-toggle="modal" data-bs-target="#customModal">
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="https://img.freepik.com/free-photo/close-up-people-business-meeting_23-2149304767.jpg?t=st=1745372912~exp=1745376512~hmac=301d5d2d7f1efd3692c5b84d0931566be843c5fbebce265ba65b8365580ff745&w=2000"
+                    class="img-fluid" alt="">
+                  <div class="date-vertical p-2">
+                    <h5>27</h5>
+                    <div class="vertical-text">
+                      <span>SEPT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Walter White</h4>
+                  <span>Chief Executive Officer</span>
+                  <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum
+                    exercitationem iure minima enim corporis et voluptate.</p>
+                </div>
+              </div>
+            </a>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <a data-bs-toggle="modal" data-bs-target="#customModal">
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="https://img.freepik.com/free-photo/people-dancing-terrace-party_23-2148231992.jpg?t=st=1745372628~exp=1745376228~hmac=f8fd5c7b8f8ed3179b2eb9c0e2d9d673842f4ea15621edf8829a6fd7ea45b2c0&w=2000"
+                    class="img-fluid" alt="">
+                  <div class="date-vertical p-2">
+                    <h5>27</h5>
+                    <div class="vertical-text">
+                      <span>SEPT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Product Manager</span>
+                  <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis.
+                    Voluptate sed quas reiciendis animi neque sapiente.</p>
+                </div>
+              </div>
+            </a>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <a data-bs-toggle="modal" data-bs-target="#customModal">
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="https://img.freepik.com/free-photo/business-team-celebration-christmas-party-concept-office_1150-2875.jpg?t=st=1745372783~exp=1745376383~hmac=1eed2a0e4460f1f28b50339ff1b0dc8088c7295221fafb1a40a03c19e277fdc9&w=2000"
+                    class="img-fluid" alt="">
+                  <div class="date-vertical p-2">
+                    <h5>27</h5>
+                    <div class="vertical-text">
+                      <span>S</span>
+                      <span>E</span>
+                      <span>P</span>
+                      <span>T</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>William Anderson</h4>
+                  <span>CTO</span>
+                  <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut
+                    architecto porro aspernatur molestiae modi.</p>
+                </div>
+              </div>
+            </a>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <a data-bs-toggle="modal" data-bs-target="#customModal">
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="https://img.freepik.com/free-photo/close-up-people-business-meeting_23-2149304767.jpg?t=st=1745372912~exp=1745376512~hmac=301d5d2d7f1efd3692c5b84d0931566be843c5fbebce265ba65b8365580ff745&w=2000"
+                    class="img-fluid" alt="">
+                  <div class="date-vertical p-2">
+                    <h5>27</h5>
+                    <div class="vertical-text">
+                      <span>S</span>
+                      <span>E</span>
+                      <span>P</span>
+                      <span>T</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Amanda Jepson</h4>
+                  <span>Accountant</span>
+                  <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid
+                    doloremque
+                    ut possimus ipsum officia.</p>
+                </div>
+              </div>
+            </a>
+          </div><!-- End Team Member -->
+
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe">
+              </div>
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">FlexStart</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h4>Follow Us</h4>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">FlexStart</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+          href=“https://themewagon.com>ThemeWagon
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+  <!-- Modal -->
+  <!-- Button Trigger Modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customModal">
+    Buka Modal Keren
+  </button>
+
+  <!-- Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="customModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0" style="
+        background: white;
+        border-radius: 12px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      ">
+        <!-- Floating Image dengan Aspect Ratio -->
+        <div class="card-img-container text-center position-relative" style="
+          top: -40px;
+          margin: 0 auto;
+          width: 80%;
+        ">
+          <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg"> <!-- Aspect Ratio 16:9 -->
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              class="img-fluid object-fit-cover" alt="Team Photo" style="transition: transform 0.4s ease;">
+          </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="modal-body pt-0" style="
+          padding: 60px 40px 40px;
+          margin-top: -20px;
+        ">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="modal-title fw-semibold mb-0">Serikat Pekerja Digital</h3>
+            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3 fw-medium">
+              Organisasi
+            </span>
+          </div>
+
+          <p class="text-muted mb-5 lh-base">
+            Kami adalah serikat pekerja yang berdedikasi untuk melindungi hak-hak pekerja di era digital, memberikan
+            pendampingan hukum, dan meningkatkan kesejahteraan anggota.
+          </p>
+
+          <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-outline-secondary " data-bs-dismiss="modal">
+              <i class="bi bi-x-lg me-2"></i>Tutup
+            </button>
+            <button type="button" class="btn btn-primary ">
+              <i class="bi bi-people-fill me-2"></i>Bergabung
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

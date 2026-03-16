@@ -1,0 +1,11 @@
+{
+    "name": "LoginAnggota",
+    "alias": "loginanggota",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\LoginAnggota\\Providers\\LoginAnggotaServiceProvider"
+    ],
+    "files": []
+}

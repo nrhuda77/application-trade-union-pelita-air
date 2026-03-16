@@ -1,0 +1,11 @@
+{
+    "name": "SaranPkb",
+    "alias": "saranpkb",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SaranPkb\\Providers\\SaranPkbServiceProvider"
+    ],
+    "files": []
+}

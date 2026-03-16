@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/pkb",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Pkb\\": "app/",
+            "Modules\\Pkb\\Database\\Factories\\": "database/factories/",
+            "Modules\\Pkb\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Pkb\\Tests\\": "tests/"
+        }
+    }
+}

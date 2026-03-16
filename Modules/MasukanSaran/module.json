@@ -1,0 +1,11 @@
+{
+    "name": "MasukanSaran",
+    "alias": "masukansaran",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\MasukanSaran\\Providers\\MasukanSaranServiceProvider"
+    ],
+    "files": []
+}

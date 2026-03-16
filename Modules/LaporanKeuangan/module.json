@@ -1,0 +1,11 @@
+{
+    "name": "LaporanKeuangan",
+    "alias": "laporankeuangan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\LaporanKeuangan\\Providers\\LaporanKeuanganServiceProvider"
+    ],
+    "files": []
+}

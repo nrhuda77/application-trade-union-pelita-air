@@ -1,0 +1,11 @@
+{
+    "name": "AnggotaSerikat",
+    "alias": "anggotaserikat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AnggotaSerikat\\Providers\\AnggotaSerikatServiceProvider"
+    ],
+    "files": []
+}

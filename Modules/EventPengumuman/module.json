@@ -1,0 +1,11 @@
+{
+    "name": "EventPengumuman",
+    "alias": "eventpengumuman",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\EventPengumuman\\Providers\\EventPengumumanServiceProvider"
+    ],
+    "files": []
+}
